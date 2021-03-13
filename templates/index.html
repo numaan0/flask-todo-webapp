@@ -3,7 +3,7 @@
 
 
   <div class="container my-3">
-    <form action="/" method="post">
+    <form action="/" method="POST">
   <div class="mb-3">
     <label for="todo" class="form-label">Enter the title of ToDO!</label>
     <input type="text" class="form-control" id="todo" name="title" aria-describedby="emailHelp">
@@ -22,9 +22,8 @@
   {% if allTodo|length==0 %}
     <hr>
 <div class="alert alert-dark" role="alert">
-  No ToDo found Add a ToDo now!
+  No ToDos found Add a ToDo now!
 </div>
-
         {% else %}
               <table class="table">
   <thead>
@@ -38,7 +37,7 @@
     </tr>
   </thead>
 
-  {% endif %}
+
 
 
   {% for todo in allTodo %}
@@ -51,9 +50,10 @@
       <a href="/delete/{{todo.sno}}" type="button" class="btn btn-outline-success btn-sm mx-1">Delete</td>
 
     </tr>
+                {% endfor %}
      </tbody>
 </table>
-  {% endfor %}
+   {% endif %}
 
   </div>
 
