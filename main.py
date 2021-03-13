@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///todo.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
-app.secret_key = 'development key'
+
 
 
 class Todo(db.Model):
@@ -20,7 +20,7 @@ class Todo(db.Model):
         return f"{self.sno} - {self.title}"
 
 
-@app.route('/',methods=['GET',"POST"])
+@app.route('/',methods=['GET','POST'])
 def index():
     if request.method=='POST':
         title=request.form['title']
