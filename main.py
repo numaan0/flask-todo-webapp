@@ -31,6 +31,10 @@ def index():
     allTodo=Todo.query.all()
     return render_template('index.html',allTodo=allTodo)
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
 @app.route('/delete/<int:sno>')
 def delete(sno):
     todo=Todo.query.filter_by(sno=sno).first()
